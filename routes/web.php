@@ -1,5 +1,7 @@
 <?php
-
+Route::get('/theme', function () {
+    return view('layouts.main');
+});
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {

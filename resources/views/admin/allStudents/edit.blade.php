@@ -1,17 +1,21 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('styles')
+    <style>
+        .help-block {
+            color: red;
+        }
+    </style>
+@endsection
 @section('content')
 
-<div class="card">
-    <div class="card-header">
-        {{ trans('global.edit') }} {{ trans('cruds.allStudent.title_singular') }}
-    </div>
-
+<div class="card mt-5">
     <div class="card-body">
         <form method="POST" action="{{ route("admin.all-students.update", [$allStudent->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group">
                 <label class="required" for="surname">{{ trans('cruds.allStudent.fields.surname') }}</label>
+                <input type="hidden" name="created_by_id" value="{{ Auth::user()->id}}">
                 <input class="form-control {{ $errors->has('surname') ? 'is-invalid' : '' }}" type="text" name="surname" id="surname" value="{{ old('surname', $allStudent->surname) }}" required>
                 @if($errors->has('surname'))
                     <div class="invalid-feedback">

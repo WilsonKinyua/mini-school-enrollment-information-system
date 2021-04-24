@@ -38,7 +38,7 @@
                             </ul>
                         </div>
                     </div>
-                    <p>{{ $allStudent->description }}</p>
+                    <p>{{ Str::limit($allStudent->description, 80) }}</p>
                     <div class="info-table table-responsive">
                         <table class="table text-nowrap">
                             <tbody>

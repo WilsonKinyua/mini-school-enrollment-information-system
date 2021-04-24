@@ -12,6 +12,7 @@
             @csrf
             <div class="form-group">
                 <label class="required">{{ trans('cruds.allParent.fields.guardian') }}</label>
+                <input type="hidden" name="created_by_id" value="{{ Auth::user()->id}}">
                 <select class="form-control {{ $errors->has('guardian') ? 'is-invalid' : '' }}" name="guardian" id="guardian" required>
                     <option value disabled {{ old('guardian', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                     @foreach(App\Models\AllParent::GUARDIAN_SELECT as $key => $label)

@@ -136,13 +136,13 @@ return [
         ],
     ],
     'allStudent' => [
-        'title'          => 'All Students',
-        'title_singular' => 'All Student',
+        'title'          => 'Students',
+        'title_singular' => 'Student',
         'fields'         => [
             'id'                         => 'ID',
             'id_helper'                  => ' ',
             'surname'                    => 'Surname',
-            'surname_helper'             => 'Enter your surName here..',
+            'surname_helper'             => 'Enter your Surname here..',
             'name'                       => 'Name',
             'name_helper'                => 'Enter (First and Second Names) here...',
             'p_o_box'                    => 'P O Box',
@@ -198,8 +198,8 @@ return [
         ],
     ],
     'allParent' => [
-        'title'          => 'All Parents',
-        'title_singular' => 'All Parent',
+        'title'          => 'Parents',
+        'title_singular' => 'Parent',
         'fields'         => [
             'id'                    => 'ID',
             'id_helper'             => ' ',

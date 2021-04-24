@@ -142,7 +142,13 @@
                                 </tr>
                                 <tr>
                                     <td>Status:</td>
-                                    <td class="font-medium text-dark-medium">{{ $allStudent->status }}</td>
+                                    <td class="font-medium text-dark-medium text-danger">
+                                        @if ($allStudent->status == 1)
+                                         Approved
+                                        @else
+                                            In Progress
+                                        @endif
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

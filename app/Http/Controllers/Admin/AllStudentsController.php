@@ -11,6 +11,7 @@ use App\Models\AllStudent;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -60,7 +61,7 @@ class AllStudentsController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $allStudent->id]);
         }
 
-        return redirect()->route('admin.all-students.index');
+        return redirect()->route('admin.all-students.index')->with('success','Student created successfully');
     }
 
     public function edit(AllStudent $allStudent)
@@ -161,5 +162,12 @@ class AllStudentsController extends Controller
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+    }
+
+    public function approve($id) {
+        DB::table('all_students')
+                ->where('id', $id)
+                ->update(['status' => true]);
+        return redirect()->back()->with('success','Student updated successfully');
     }
 }

@@ -207,13 +207,21 @@
                             <td>
                                 @if (Auth::user()->id == 1)
                                 @can('all_student_approve')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.all-students.show', $allStudent->id) }}">
-                                        Approve
+                                    <a class="btn btn-xs btn-danger" href="{{ route('admin.student.approve', $allStudent->id) }}">
+                                        @if ($allStudent->status == 1)
+                                         Approved
+                                        @else
+                                        Unapproved
+                                        @endif
                                     </a>
                                  @endcan
                                 @else
-                                <button class="btn btn-xs btn-primary">
-                                    Approved
+                                <button class="btn btn-xs btn-danger">
+                                    @if ($allStudent->status == 1)
+                                        Approved
+                                   @else
+                                        In Progress
+                                   @endif
                                 </button>
                                 @endif
 

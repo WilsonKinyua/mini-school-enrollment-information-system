@@ -256,7 +256,15 @@ Edit
                 @endif
                 <span class="help-block">{{ trans('cruds.allStudent.fields.any_other_documents_helper') }}</span>
             </div>
-            <div class="form-group">
+            <input type="hidden" name="admission_number" value=
+            "
+            <?php
+            $fourRandomDigit = rand(1000,9999);
+                echo $fourRandomDigit;
+            ?>
+            "
+            >
+            {{-- <div class="form-group">
                 <label class="required" for="admission_number">{{ trans('cruds.allStudent.fields.admission_number') }}</label>
                 <input class="form-control {{ $errors->has('admission_number') ? 'is-invalid' : '' }}" type="text" name="admission_number" id="admission_number" value="{{ old('admission_number', '') }}" required>
                 @if($errors->has('admission_number'))
@@ -265,8 +273,9 @@ Edit
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.allStudent.fields.admission_number_helper') }}</span>
-            </div>
-            <div class="form-group">
+            </div> --}}
+            <input type="hidden" name="status" value="0">
+            {{-- <div class="form-group">
                 <label class="required" for="status">{{ trans('cruds.allStudent.fields.status') }}</label>
                 <input class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" type="number" name="status" id="status" value="{{ old('status', '') }}" step="1" required>
                 @if($errors->has('status'))
@@ -275,7 +284,7 @@ Edit
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.allStudent.fields.status_helper') }}</span>
-            </div>
+            </div> --}}
             <div class="form-group">
                 <button class="btn btn-primary btn-lg" type="submit">
                     {{ trans('global.save') }}

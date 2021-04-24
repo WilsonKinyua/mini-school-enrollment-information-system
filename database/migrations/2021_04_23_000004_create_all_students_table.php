@@ -25,10 +25,12 @@ class CreateAllStudentsTable extends Migration
             $table->string('county');
             $table->string('disabled');
             $table->longText('description')->nullable();
-            $table->integer('status');
+            $table->integer('status')->nullable()->default(0);
             $table->string('kcpe_grade');
             $table->integer('kcpe_total_marks');
             $table->string('admission_number');
+            // $table->date('enrolled_from')->nullable();
+            // $table->date('enrolled_to')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

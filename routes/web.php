@@ -51,6 +51,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('all-students/media', 'AllStudentsController@storeMedia')->name('all-students.storeMedia');
     Route::post('all-students/ckmedia', 'AllStudentsController@storeCKEditorImages')->name('all-students.storeCKEditorImages');
     Route::resource('all-students', 'AllStudentsController');
+    Route::get('student/{id}/approve','AllStudentsController@approve')->name('student.approve');
 
     // All Parents
     Route::delete('all-parents/destroy', 'AllParentsController@massDestroy')->name('all-parents.massDestroy');

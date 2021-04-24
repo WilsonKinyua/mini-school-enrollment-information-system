@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css')}}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    {{-- toastr --}}
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css')}}">
     <!-- Modernize js -->
     <script src="{{ asset('js/modernizr-3.6.0.min.js')}}"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
@@ -132,7 +134,23 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+<!-- toastr -->
+{{-- notification --}}
+ <script src="{{ asset('js/toastr.min.js')}}"></script>
  <script src="{{ asset('js/main.js') }}"></script>
+ <script>
+    @if (session()->has('success'))
+        toastr.success("{{session()->get('success')}}");
+    @endif
+
+    @if (session()->has('danger'))
+        toastr.warning("{{session()->get('danger')}}");
+    @endif
+
+    @if (session()->has('error'))
+        toastr.error("{{session()->get('error')}}");
+    @endif
+</script>
  @yield('scripts')
  <script>
     $(function() {

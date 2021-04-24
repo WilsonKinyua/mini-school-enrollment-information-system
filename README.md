@@ -40,7 +40,7 @@
 
     php artisan key:generate
 
->Import database <a href="hotel.sql">Hotel</a>
+>Import database <a href="school.sql">School</a>
 
 
 

@@ -162,6 +162,14 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 38,
                 'title' => 'profile_password_edit',
             ],
+            [
+                'id'    => 39,
+                'title' => 'only_admin',
+            ],
+            [
+                'id'    => 40,
+                'title' => 'all_student_approve',
+            ],
         ];
 
         Permission::insert($permissions);

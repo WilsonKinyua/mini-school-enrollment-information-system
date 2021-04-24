@@ -127,10 +127,6 @@
                                     <td class="font-medium text-dark-medium">{{ App\Models\AllStudent::DISABLED_SELECT[$allStudent->disabled] ?? '' }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Description:</td>
-                                    <td class="font-medium text-dark-medium">{{ $allStudent->description }}</td>
-                                </tr>
-                                <tr>
                                     <td>Any Other Document:</td>
                                     <td class="font-medium text-dark-medium">
                                         @foreach($allStudent->any_other_documents as $key => $media)

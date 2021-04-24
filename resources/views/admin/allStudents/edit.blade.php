@@ -1,4 +1,7 @@
 @extends('layouts.main')
+@section('title')
+Edit
+@endsection
 @section('styles')
     <style>
         .help-block {

@@ -43,27 +43,30 @@
                 <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                     aria-expanded="false">
                     <div class="admin-title">
-                        <h5 class="item-title">Stevne Zone</h5>
-                        <span>Admin</span>
+                        <h5 class="item-title">{{ Auth::user()->name }}</h5>
+                        {{-- <span>Admin</span> --}}
                     </div>
                     <div class="admin-img">
-                        <img src="img/figure/admin.jpg" alt="User">
+                        @if(Auth::user()->profile_photo)
+                            <img src="{{ Auth::user()->profile_photo->getUrl('thumb') }}">
+                        @endif
+                        {{-- <img src="img/figure/admin.jpg" alt="User"> --}}
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="item-header">
-                        <h6 class="item-title">Steven Zone</h6>
+                        <h6 class="item-title">{{ Auth::user()->name }}</h6>
                     </div>
                     <div class="item-content">
                         <ul class="settings-list">
                             <li><a href="#"><i class="flaticon-user"></i>My Profile</a></li>
                             <li><a href="#"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>Message</a></li>
-                            <li><a href="#"><i class="flaticon-turn-off"></i>Log Out</a></li>
+                            <li><a href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"><i class="flaticon-turn-off"></i>Log Out</a></li>
                         </ul>
                     </div>
                 </div>
             </li>
-            <li class="navbar-item dropdown header-notification">
+            {{-- <li class="navbar-item dropdown header-notification">
                 <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                     aria-expanded="false">
                     <i class="far fa-bell"></i>
@@ -105,7 +108,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>

@@ -16,10 +16,12 @@
                 <a href="{{ route("admin.all-students.index") }}" class="nav-link {{ request()->is("admin/all-students") || request()->is("admin/all-students/*") ? "menu-active" : "" }}"><i class="flaticon-open-book"></i><span> {{ trans('cruds.allStudent.title') }}</span></a>
             </li>
             @endcan
+            @can('user_management_access')
             @can('all_parent_access')
             <li class="nav-item">
                 <a href="{{ route("admin.all-parents.index") }}" class="nav-link {{ request()->is("admin/all-parents") || request()->is("admin/all-parents/*") ? "menu-active" : "" }}"><i class="flaticon-open-book"></i><span>{{ trans('cruds.allParent.title') }}</span></a>
             </li>
+            @endcan
             @endcan
             @can('user_management_access')
              <li class="nav-item sidebar-nav-item
@@ -69,7 +71,7 @@
             <li class="nav-item">
                 <a href="{{ route("admin.systemCalendar") }}" class="nav-link {{ request()->is("admin/system-calendar") || request()->is("admin/system-calendar/*") ? "home-active" : "" }}"><i class="flaticon-open-book"></i><span>{{ trans('global.systemCalendar') }}</span></a>
             </li>
-            @php($unread = \App\Models\QaTopic::unreadCount())
+            {{-- @php($unread = \App\Models\QaTopic::unreadCount())
             <li class="nav-item">
                 <a href="{{ route("admin.messenger.index") }}" class="nav-link {{ request()->is("admin/messenger") || request()->is("admin/messenger/*") ? "home-active" : "" }}"><i class="flaticon-open-book"></i><span>
                     {{ trans('global.messages') }}</span>
@@ -77,7 +79,7 @@
                         <strong>( {{ $unread }} )</strong>
                     @endif
                 </a>
-            </li>
+            </li> --}}
             @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
             @can('profile_password_edit')
             <li class="nav-item">

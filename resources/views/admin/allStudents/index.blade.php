@@ -6,13 +6,12 @@
 <div class="dashboard-content-one">
     <!-- Breadcubs Area Start Here -->
     <div class="breadcrumbs-area">
-        <h3>Students</h3>
-        <ul>
+        <h3>Student</h3>
+        {{-- <ul>
             <li>
                 <a href="/">Home</a>
             </li>
-            <li>All Students</li>
-        </ul>
+        </ul> --}}
     </div>
     <!-- Breadcubs Area End Here -->
     <!-- Student Table Area Start Here -->
@@ -21,9 +20,18 @@
             @can('all_student_create')
                 <div style="margin-bottom: 10px;" class="row">
                     <div class="col-lg-2">
-                        <a class="fw-btn-fill btn-gradient-yellow" href="{{ route('admin.all-students.create') }}">
-                            Add Student
-                        </a>
+
+                            @if (count($allStudents) < 1)
+                            <a class="fw-btn-fill btn-gradient-yellow" href="{{ route('admin.all-students.create') }}">
+                                Apply
+                            </a>
+                            @endif
+                            @can('all_student_approve')
+                            <a class="fw-btn-fill btn-gradient-yellow" href="{{ route('admin.all-students.create') }}">
+                                Enroll
+                            </a>
+                            @endcan
+
                     </div>
                 </div>
             @endcan
@@ -197,7 +205,18 @@
                                 {{ $allStudent->admission_number ?? '' }}
                             </td> --}}
                             <td>
-                                {{ $allStudent->status ?? '' }}
+                                @if (Auth::user()->id == 1)
+                                @can('all_student_approve')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.all-students.show', $allStudent->id) }}">
+                                        Approve
+                                    </a>
+                                 @endcan
+                                @else
+                                <button class="btn btn-xs btn-primary">
+                                    Approved
+                                </button>
+                                @endif
+
                             </td>
                             <td>
                                 @can('all_student_show')

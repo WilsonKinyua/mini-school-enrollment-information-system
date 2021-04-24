@@ -14,6 +14,10 @@ Edit
 <div class="card mt-5">
 
     <div class="card-body">
+        <div class="alert icon-alart bg-pink2" role="alert">
+            <i class="fas fa-times bg-pink3"></i>
+            Attention! Fill in your details and proceed to parent or Guardian pages to complete your application process!!
+        </div>
         <form method="POST" action="{{ route("admin.all-students.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">

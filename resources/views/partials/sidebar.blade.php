@@ -16,12 +16,10 @@
                 <a href="{{ route("admin.all-students.index") }}" class="nav-link {{ request()->is("admin/all-students") || request()->is("admin/all-students/*") ? "menu-active" : "" }}"><i class="flaticon-open-book"></i><span> {{ trans('cruds.allStudent.title') }}</span></a>
             </li>
             @endcan
-            @can('user_management_access')
             @can('all_parent_access')
             <li class="nav-item">
                 <a href="{{ route("admin.all-parents.index") }}" class="nav-link {{ request()->is("admin/all-parents") || request()->is("admin/all-parents/*") ? "menu-active" : "" }}"><i class="flaticon-open-book"></i><span>{{ trans('cruds.allParent.title') }}</span></a>
             </li>
-            @endcan
             @endcan
             @can('user_management_access')
              <li class="nav-item sidebar-nav-item

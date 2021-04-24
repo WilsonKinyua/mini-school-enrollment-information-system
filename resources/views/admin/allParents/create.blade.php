@@ -1,11 +1,17 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('title')
+    Create Parent
+@endsection
+@section('styles')
+    <style>
+        .help-block {
+            color: red;
+        }
+    </style>
+@endsection
 @section('content')
 
-<div class="card">
-    <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.allParent.title_singular') }}
-    </div>
-
+<div class="card mt-5">
     <div class="card-body">
         <form method="POST" action="{{ route("admin.all-parents.store") }}" enctype="multipart/form-data">
             @csrf

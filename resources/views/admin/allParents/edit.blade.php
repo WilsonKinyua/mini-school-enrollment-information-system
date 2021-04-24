@@ -1,11 +1,10 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('title')
+    Edit Parent
+@endsection
 @section('content')
 
-<div class="card">
-    <div class="card-header">
-        {{ trans('global.edit') }} {{ trans('cruds.allParent.title_singular') }}
-    </div>
-
+<div class="card mt-5">
     <div class="card-body">
         <form method="POST" action="{{ route("admin.all-parents.update", [$allParent->id]) }}" enctype="multipart/form-data">
             @method('PUT')

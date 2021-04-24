@@ -1,4 +1,7 @@
 @extends('layouts.main')
+@section('title')
+Change Password
+@endsection
 @section('content')
 
 <div class="row">

@@ -9,6 +9,9 @@
         <li>
             <a href="/">Home</a>
         </li>
+        <li>
+            Welcome back!!
+        </li>
     </ul>
 </div>
 @endsection

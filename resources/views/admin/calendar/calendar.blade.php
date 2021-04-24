@@ -1,4 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('title')
+Callendar
+@endsection
 @section('content')
 <h3 class="page-title">{{ trans('global.systemCalendar') }}</h3>
 <div class="card">

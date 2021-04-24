@@ -1,4 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('title')
+Audit Logs
+@endsection
 @section('content')
 
 <div class="card">
@@ -51,7 +54,7 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-  
+
   let dtOverrideGlobals = {
     buttons: dtButtons,
     processing: true,
@@ -72,14 +75,14 @@
     ],
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],
-    pageLength: 100,
+    pageLength: 1000,
   };
   let table = $('.datatable-AuditLog').DataTable(dtOverrideGlobals);
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 });
 
 </script>

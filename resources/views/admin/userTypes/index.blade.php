@@ -1,15 +1,18 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('title')
+ User Type List
+@endsection
 @section('content')
-@can('user_type_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.user-types.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.userType.title_singular') }}
-            </a>
+<div class="card mt-5">
+    @can('user_type_create')
+        <div style="margin-bottom: 10px;" class="row">
+            <div class="col-lg-12">
+                <a class="btn btn-primary btn-lg" href="{{ route('admin.user-types.create') }}">
+                    {{ trans('global.add') }} {{ trans('cruds.userType.title_singular') }}
+                </a>
+            </div>
         </div>
-    </div>
-@endcan
-<div class="card">
+    @endcan
     <div class="card-header">
         {{ trans('cruds.userType.title_singular') }} {{ trans('global.list') }}
     </div>
@@ -100,7 +103,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 });
 
 </script>

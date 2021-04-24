@@ -59,8 +59,8 @@
                     </div>
                     <div class="item-content">
                         <ul class="settings-list">
-                            <li><a href="#"><i class="flaticon-user"></i>My Profile</a></li>
-                            <li><a href="#"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>Message</a></li>
+                            <li><a href="{{ route('profile.password.edit') }}"><i class="flaticon-user"></i>My Profile</a></li>
+                            {{-- <li><a href="#"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>Message</a></li> --}}
                             <li><a href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"><i class="flaticon-turn-off"></i>Log Out</a></li>
                         </ul>
                     </div>

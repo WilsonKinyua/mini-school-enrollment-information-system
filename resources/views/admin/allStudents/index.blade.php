@@ -1,230 +1,138 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('title')
+    Student List
+@endsection
 @section('content')
-@can('all_student_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.all-students.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.allStudent.title_singular') }}
-            </a>
-        </div>
+<div class="dashboard-content-one">
+    <!-- Breadcubs Area Start Here -->
+    <div class="breadcrumbs-area">
+        <h3>Students</h3>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>All Students</li>
+        </ul>
     </div>
-@endcan
-<div class="card">
-    <div class="card-header">
-        {{ trans('cruds.allStudent.title_singular') }} {{ trans('global.list') }}
-    </div>
-
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-AllStudent">
-                <thead>
-                    <tr>
-                        <th width="10">
-
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.id') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.surname') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.name') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.p_o_box') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.town') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.town_code') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.phone_no') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.email') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.village') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.county') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.country') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.date_of_birth') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.religion') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.gender') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.kcpe_grade') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.result_slip') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.kcpe_total_marks') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.birth_certificate') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.passport_photo') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.disabled') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.description') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.any_other_documents') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.admission_number') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.allStudent.fields.status') }}
-                        </th>
-                        <th>
-                            &nbsp;
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <select class="search" strict="true">
-                                <option value>{{ trans('global.all') }}</option>
-                                @foreach(App\Models\AllStudent::COUNTY_SELECT as $key => $item)
-                                    <option value="{{ $item }}">{{ $item }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td>
-                            <select class="search" strict="true">
-                                <option value>{{ trans('global.all') }}</option>
-                                @foreach(App\Models\AllStudent::COUNTRY_SELECT as $key => $item)
-                                    <option value="{{ $item }}">{{ $item }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                            <select class="search" strict="true">
-                                <option value>{{ trans('global.all') }}</option>
-                                @foreach(App\Models\AllStudent::RELIGION_SELECT as $key => $item)
-                                    <option value="{{ $item }}">{{ $item }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td>
-                            <select class="search" strict="true">
-                                <option value>{{ trans('global.all') }}</option>
-                                @foreach(App\Models\AllStudent::GENDER_SELECT as $key => $item)
-                                    <option value="{{ $item }}">{{ $item }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                            <select class="search" strict="true">
-                                <option value>{{ trans('global.all') }}</option>
-                                @foreach(App\Models\AllStudent::DISABLED_SELECT as $key => $item)
-                                    <option value="{{ $item }}">{{ $item }}</option>
-                                @endforeach
-                            </select>
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($allStudents as $key => $allStudent)
+    <!-- Breadcubs Area End Here -->
+    <!-- Student Table Area Start Here -->
+    <div class="card height-auto">
+        <div class="card-body">
+            @can('all_student_create')
+                <div style="margin-bottom: 10px;" class="row">
+                    <div class="col-lg-2">
+                        <a class="fw-btn-fill btn-gradient-yellow" href="{{ route('admin.all-students.create') }}">
+                            Add Student
+                        </a>
+                    </div>
+                </div>
+            @endcan
+            <div class="table-responsive">
+                <table class="table display data-table text-nowrap">
+                    <thead>
+                        <tr>
+                            {{-- <th>
+                                {{ trans('cruds.allStudent.fields.id') }}
+                            </th> --}}
+                            <th>
+                                {{ trans('cruds.allStudent.fields.surname') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.allStudent.fields.name') }}
+                            </th>
+                            {{-- <th>
+                                {{ trans('cruds.allStudent.fields.p_o_box') }}
+                            </th> --}}
+                            <th>
+                                {{ trans('cruds.allStudent.fields.town') }}
+                            </th>
+                            {{-- <th>
+                                {{ trans('cruds.allStudent.fields.town_code') }}
+                            </th> --}}
+                            <th>
+                                {{ trans('cruds.allStudent.fields.phone_no') }}
+                            </th>
+                            {{-- <th>
+                                {{ trans('cruds.allStudent.fields.email') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.allStudent.fields.village') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.allStudent.fields.county') }}
+                            </th> --}}
+                            {{-- <th>
+                                {{ trans('cruds.allStudent.fields.country') }}
+                            </th> --}}
+                            {{-- <th>
+                                {{ trans('cruds.allStudent.fields.date_of_birth') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.allStudent.fields.religion') }}
+                            </th> --}}
+                            <th>
+                                {{ trans('cruds.allStudent.fields.gender') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.allStudent.fields.kcpe_grade') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.allStudent.fields.result_slip') }}
+                            </th>
+                            {{-- <th>
+                                {{ trans('cruds.allStudent.fields.kcpe_total_marks') }}
+                            </th> --}}
+                            <th>
+                                {{ trans('cruds.allStudent.fields.birth_certificate') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.allStudent.fields.passport_photo') }}
+                            </th>
+                            {{-- <th>
+                                {{ trans('cruds.allStudent.fields.disabled') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.allStudent.fields.description') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.allStudent.fields.any_other_documents') }}
+                            </th>
+                            <th>
+                                {{ trans('cruds.allStudent.fields.admission_number') }}
+                            </th> --}}
+                            <th>
+                                {{ trans('cruds.allStudent.fields.status') }}
+                            </th>
+                            <th>
+                                &nbsp;
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($allStudents as $key => $allStudent)
                         <tr data-entry-id="{{ $allStudent->id }}">
-                            <td>
-
-                            </td>
-                            <td>
+                            {{-- <td>
                                 {{ $allStudent->id ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $allStudent->surname ?? '' }}
                             </td>
                             <td>
                                 {{ $allStudent->name ?? '' }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ $allStudent->p_o_box ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $allStudent->town ?? '' }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ $allStudent->town_code ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $allStudent->phone_no ?? '' }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ $allStudent->email ?? '' }}
                             </td>
                             <td>
@@ -232,8 +140,8 @@
                             </td>
                             <td>
                                 {{ App\Models\AllStudent::COUNTY_SELECT[$allStudent->county] ?? '' }}
-                            </td>
-                            <td>
+                            </td> --}}
+                            {{-- <td>
                                 {{ App\Models\AllStudent::COUNTRY_SELECT[$allStudent->country] ?? '' }}
                             </td>
                             <td>
@@ -241,7 +149,7 @@
                             </td>
                             <td>
                                 {{ App\Models\AllStudent::RELIGION_SELECT[$allStudent->religion] ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ App\Models\AllStudent::GENDER_SELECT[$allStudent->gender] ?? '' }}
                             </td>
@@ -255,9 +163,9 @@
                                     </a>
                                 @endif
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ $allStudent->kcpe_total_marks ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 @if($allStudent->birth_certificate)
                                     <a href="{{ $allStudent->birth_certificate->getUrl() }}" target="_blank">
@@ -272,7 +180,7 @@
                                     </a>
                                 @endif
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ App\Models\AllStudent::DISABLED_SELECT[$allStudent->disabled] ?? '' }}
                             </td>
                             <td>
@@ -287,7 +195,7 @@
                             </td>
                             <td>
                                 {{ $allStudent->admission_number ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $allStudent->status ?? '' }}
                             </td>
@@ -316,13 +224,12 @@
 
                         </tr>
                     @endforeach
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
-
-
 
 @endsection
 @section('scripts')
@@ -370,7 +277,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 let visibleColumnsIndexes = null;
 $('.datatable thead').on('input', '.search', function () {
       let strict = $(this).attr('strict') || false

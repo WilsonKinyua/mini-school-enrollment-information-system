@@ -1,7 +1,7 @@
 @can('user_alert_create')
-    <div style="margin-bottom: 10px;" class="row">
+    <div style="margin-bottom: 10px; mt-5" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.user-alerts.create') }}">
+            <a class="btn btn-primary btn-lg" href="{{ route('admin.user-alerts.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.userAlert.title_singular') }}
             </a>
         </div>
@@ -135,7 +135,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

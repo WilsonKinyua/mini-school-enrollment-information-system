@@ -1,15 +1,18 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('title')
+ Permission List
+@endsection
 @section('content')
+<div class="card mt-5">
 @can('permission_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.permissions.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.permission.title_singular') }}
-            </a>
-        </div>
+<div style="margin-bottom: 10px;" class="row">
+    <div class="col-lg-12">
+        <a style="padding: 20px" class="btn btn-primary btn-lg" href="{{ route('admin.permissions.create') }}">
+            {{ trans('global.add') }} {{ trans('cruds.permission.title_singular') }}
+        </a>
     </div>
+</div>
 @endcan
-<div class="card">
     <div class="card-header">
         {{ trans('cruds.permission.title_singular') }} {{ trans('global.list') }}
     </div>
@@ -116,15 +119,15 @@
 
   $.extend(true, $.fn.dataTable.defaults, {
     orderCellsTop: true,
-    order: [[ 1, 'desc' ]],
-    pageLength: 100,
+    order: [[ 1, 'asc' ]],
+    pageLength: 1000,
   });
   let table = $('.datatable-Permission:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

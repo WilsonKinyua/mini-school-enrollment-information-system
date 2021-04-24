@@ -1,24 +1,23 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('title')
+User List
+@endsection
 @section('content')
-@can('user_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.users.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.user.title_singular') }}
-            </a>
-            <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
-                {{ trans('global.app_csvImport') }}
-            </button>
-            @include('csvImport.modal', ['model' => 'User', 'route' => 'admin.users.parseCsvImport'])
-        </div>
-    </div>
-@endcan
-<div class="card">
-    <div class="card-header">
-        {{ trans('cruds.user.title_singular') }} {{ trans('global.list') }}
-    </div>
-
+<div class="card mt-5">
     <div class="card-body">
+        @can('user_create')
+            <div style="margin-bottom: 10px;" class="row">
+                <div class="col-lg-2">
+                    <a class="fw-btn-fill btn-gradient-yellow" href="{{ route('admin.users.create') }}">
+                        {{ trans('global.add') }} {{ trans('cruds.user.title_singular') }}
+                    </a>
+                    {{-- <button class="fw-btn-fill btn-gradient-yellow" data-toggle="modal" data-target="#csvImportModal">
+                        {{ trans('global.app_csvImport') }}
+                    </button>
+                    @include('csvImport.modal', ['model' => 'User', 'route' => 'admin.users.parseCsvImport']) --}}
+                </div>
+            </div>
+        @endcan
         <div class="table-responsive">
             <table class=" table table-bordered table-striped table-hover datatable datatable-User">
                 <thead>
@@ -171,7 +170,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

@@ -1,7 +1,10 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('title')
+Create Permission
+@endsection
 @section('content')
 
-<div class="card">
+<div class="card mt-5">
     <div class="card-header">
         {{ trans('global.create') }} {{ trans('cruds.permission.title_singular') }}
     </div>

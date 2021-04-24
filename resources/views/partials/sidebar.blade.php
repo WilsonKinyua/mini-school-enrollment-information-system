@@ -61,11 +61,11 @@
                  </ul>
              </li>
              @endcan
-             @can('user_alert_access')
+             {{-- @can('user_alert_access')
              <li class="nav-item">
                 <a href="{{ route("admin.user-alerts.index") }}" class="nav-link {{ request()->is("admin/user-alerts") || request()->is("admin/user-alerts/*") ? "home-active" : "" }}"><i class="flaticon-open-book"></i><span> {{ trans('cruds.userAlert.title') }}</span></a>
             </li>
-            @endcan
+            @endcan --}}
             <li class="nav-item">
                 <a href="{{ route("admin.systemCalendar") }}" class="nav-link {{ request()->is("admin/system-calendar") || request()->is("admin/system-calendar/*") ? "home-active" : "" }}"><i class="flaticon-open-book"></i><span>{{ trans('global.systemCalendar') }}</span></a>
             </li>

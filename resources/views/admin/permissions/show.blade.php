@@ -1,4 +1,7 @@
-@extends('layouts.admin')
+@extends('layouts.main')
+@section('title')
+View Permission
+@endsection
 @section('content')
 
 <div class="card">
@@ -9,7 +12,7 @@
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.permissions.index') }}">
+                <a class="btn btn-primary btn-lg" href="{{ route('admin.permissions.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -34,7 +37,7 @@
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.permissions.index') }}">
+                <a class="btn btn-primary btn-lg" href="{{ route('admin.permissions.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
